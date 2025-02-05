@@ -1,7 +1,7 @@
-from kfp import compiler, dsl
+from kfp import dsl
 
 
-@dsl.component
+@dsl.component(base_image="quay.io/fedora/python-39")
 def comp(message: str) -> str:
     print(message)
     return message

@@ -46,7 +46,7 @@ deploymentSpec:
         - "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import\
           \ *\n\ndef comp(message: str) -> str:\n    print(message)\n    return message\n\
           \n"
-        image: python:3.9
+        image: quay.io/fedora/python-39
 pipelineInfo:
   description: My ML pipeline.
   name: my-pipeline
