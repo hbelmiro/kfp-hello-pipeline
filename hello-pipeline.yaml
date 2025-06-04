@@ -1,6 +1,5 @@
 # PIPELINE DEFINITION
 # Name: my-pipeline
-# Description: My ML pipeline.
 # Inputs:
 #    message: str
 # Outputs:
@@ -46,9 +45,8 @@ deploymentSpec:
         - "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import\
           \ *\n\ndef comp(message: str) -> str:\n    print(message)\n    return message\n\
           \n"
-        image: quay.io/fedora/python-39
+        image: registry.access.redhat.com/ubi9/python-312
 pipelineInfo:
-  description: My ML pipeline.
   name: my-pipeline
 root:
   dag:
