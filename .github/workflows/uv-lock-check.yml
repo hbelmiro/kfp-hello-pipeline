@@ -1,0 +1,31 @@
+name: Check uv.lock sync
+
+on:
+  push:
+    branches: [ 'main' ]
+  pull_request:
+    paths:
+      - '.github/workflows/uv-lock-check.yml'
+      - 'pyproject.toml'
+      - 'uv.lock'
+
+jobs:
+  uv-lock-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check uv.lock is in sync with pyproject.toml
+        uses: hbelmiro/uv-lock-check@v0.1.0
+
+  requirements-txt-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check requirements.txt is in sync with pyproject.toml
+        uses: hbelmiro/uv-lock-check@v0.1.0
+        with:
+          requirements-command: 'uv pip compile --python-platform=linux pyproject.toml -o requirements.txt'
