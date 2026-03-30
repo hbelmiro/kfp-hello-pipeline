@@ -15,18 +15,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
 
       - name: Check uv.lock is in sync with pyproject.toml
-        uses: hbelmiro/uv-lock-check@v0.1.0
+        uses: hbelmiro/uv-lock-check@0f61abab823606abaed0b18bd1282513a7cda858 # v0.1.0
 
   requirements-txt-check:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
 
       - name: Check requirements.txt is in sync with pyproject.toml
-        uses: hbelmiro/uv-lock-check@v0.1.0
+        uses: hbelmiro/uv-lock-check@0f61abab823606abaed0b18bd1282513a7cda858 # v0.1.0
         with:
           requirements-command: 'uv pip compile --python-platform=linux pyproject.toml -o requirements.txt'
